@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,239 +67,281 @@
     </style>
 </head>
 <body>
-    <audio autoplay loop>
-        <source src="téléchargement.wav" type="audio/wav">
-      Your browser does not support the audio element.
-    </audio>
+    <!-- Audio qui se joue une seule fois au chargement -->
+    <audio id="intro-audio" src="téléchargement.wav"></audio>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('intro-audio');
+            // Ne tente plus de jouer automatiquement, attend le clic utilisateur
+        });
+        function playIntroAudio() {
+            const audio = document.getElementById('intro-audio');
+            audio.muted = false;
+            audio.play();
+        }
+    </script>
 
-    <!-- Conteneur principal centré -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-
-        <!-- En-tête du Profil -->
-        <header class="text-center mb-16">
-            <h1 class="text-6xl font-extrabold mb-4 gradient-text leading-tight" id="main-title">Mon Ikigai Culturel</h1>
-            <p class="text-xl text-gray-600" id="main-subtitle">Le profil de mon identité et de ma mission, centré sur l'essentiel.</p>
-        </header>
-
-        <!-- Vue Principale de l'Ikigai (affichée par défaut) -->
-        <div id="ikigai-view" class="transition-opacity duration-500">
-            <section class="relative flex justify-center items-center py-8">
-                
-                <!-- Core: DIEU (Maintenant cliquable) -->
-                <div class="ikigai-core flex flex-col space-y-2" id="card-centre" data-section="centre">
-                    <h2 class="text-5xl font-bold tracking-wider">DIEU</h2>
-                    <p class="text-lg font-medium">Mon Centre</p>
-                </div>
-
-                <!-- Grille des Quatre Piliers (Responsive Grid) -->
-                <div class="grid md:grid-cols-2 gap-10 lg:gap-16 mt-16 md:mt-0 p-4 md:p-0 w-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-6xl">
-
-                    <!-- 1. Mes Valeurs (Ce qui donne sens) -->
-                    <div id="card-valeurs" data-section="valeurs" class="section-card p-6 md:p-8 lg:p-10 col-span-1 md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2 self-start md:translate-x-[-15%] md:translate-y-[-10%]">
-                        <h3 class="text-2xl font-bold mb-4 text-pink-600 flex items-center">
-                            <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path></svg>
-                            Mes Valeurs Fondamentales
-                        </h3>
-                        <ul class="space-y-2 text-gray-700 list-disc pl-5">
-                            <li>Amour</li>
-                            <li>Foi</li>
-                            <li>Engagement</li>
-                            <li>Camaraderie</li>
-                            <li>Responsabilité</li>
-                        </ul>
-                    </div>
-
-                    <!-- 2. Mes Préoccupations (Ce dont le monde a besoin) -->
-                    <div id="card-preoccupations" data-section="preoccupations" class="section-card p-6 md:p-8 lg:p-10 col-span-1 md:col-start-2 md:col-end-3 md:row-start-1 md:row-end-2 self-start md:translate-x-[15%] md:translate-y-[-10%]">
-                        <h3 class="text-2xl font-bold mb-4 text-green-600 flex items-center">
-                            <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm1 12h-2v-2h2v2zm0-4h-2V6h2v4z" clip-rule="evenodd"></path></svg>
-                            Mes Préoccupations Sociales
-                        </h3>
-                        <ul class="space-y-2 text-gray-700 list-disc pl-5">
-                            <li>Accessibilité éducative</li>
-                            <li>Compétences pertinentes</li>
-                            <li>Partenariats mondiaux</li>
-                            <li>Support scolaire</li>
-                            <li>Ateliers de compétences</li>
-                        </ul>
-                    </div>
-
-                    <!-- 3. Mes Talents (Ce que je fais bien) -->
-                    <div id="card-talents" data-section="talents" class="section-card p-6 md:p-8 lg:p-10 col-span-1 md:col-start-1 md:col-end-2 md:row-start-2 md:row-end-3 self-end md:translate-x-[-15%] md:translate-y-[10%]">
-                        <h3 class="text-2xl font-bold mb-4 text-yellow-600 flex items-center">
-                            <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6v2a2 2 0 01-2 2h16a2 2 0 01-2-2V8a6 6 0 00-6-6zM4 14v1a3 3 0 003 3h6a3 3 0 003-3v-1H4z"></path></svg>
-                            Mes Talents & Compétences
-                        </h3>
-                        <ul class="space-y-2 text-gray-700 list-disc pl-5">
-                            <li>Encourager les autres</li>
-                            <li>Percevoir les émotions</li>
-                            <li>Initié de projets</li>
-                            <li>Confiance en soi</li>
-                            <li>Engagement authentique</li>
-                        </ul>
-                    </div>
-
-                    <!-- 4. Mes Vocations (Ce pour quoi je peux être payé/servir) -->
-                    <div id="card-vocations" data-section="vocations" class="section-card p-6 md:p-8 lg:p-10 col-span-1 md:col-start-2 md:col-end-3 md:row-start-2 md:row-end-3 self-end md:translate-x-[15%] md:translate-y-[10%]">
-                        <h3 class="text-2xl font-bold mb-4 text-blue-600 flex items-center">
-                            <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20"><path d="M10 9a3 3 0 100-6 3 3 0 000 6zM9 10H8v4h4v-4h-1v-2H9v2z"></path></svg>
-                            Mes Pistes Vocationnelles
-                        </h3>
-                        <ul class="space-y-2 text-gray-700 list-disc pl-5">
-                            <li>Coach Éducatif</li>
-                            <li>Animateur Communautaire</li>
-                            <li>Consultant En Éducation</li>
-                            <li>Mentor Jeunesse</li>
-                            <li>Coordinateur Partenariats</li>
-                        </ul>
-                    </div>
-
-                </div>
-
-            </section>
+    <!-- Hero Section (About Me) -->
+    <section id="hero" class="h-screen flex flex-col md:flex-row justify-center items-center text-center md:text-left bg-white relative">
+        <!-- Vidéo à gauche -->
+        <div class="md:w-1/2 flex justify-center items-center">
+            <img src="hero.jpg" class="w-72 h-72 md:w-96 md:h-96 rounded-full shadow-lg mb-8 md:mb-0 object-cover"></img>
         </div>
-        
-        <!-- Conteneur des Vues Détaillées (initialement caché) -->
-        <div id="detail-view-container" class="hidden transition-opacity duration-500 opacity-0">
-            
-            <!-- Bouton de retour commun -->
-            <button onclick="showIkigai()" class="mb-8 px-6 py-3 bg-gray-200 text-gray-700 font-semibold rounded-full hover:bg-gray-300 transition duration-300 flex items-center">
-                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                Retour au Profil Ikigai
+        <!-- Texte à droite -->
+        <div class="max-w-4xl mx-auto px-4 md:w-1/2 flex flex-col justify-center items-center md:items-start">
+            <h1 class="text-5xl font-extrabold mb-4 gradient-text">À Propos de Moi</h1>
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">Étudiant en Ingénierie & Passionné de Technologie</h2>
+            <p class="text-xl text-gray-700 leading-relaxed mb-4">
+            Je suis née au Togo un lundi 23 Janvier 2006 aux alentours de 00h. J'y ai vécu dans un envrironnement aimant jusqu'à mon bac. Je partis alors pour le Maroc
+            où ma relation avec Dieu s'intensifia. Apres deux années au Maroc, je partis pour la France où je suis actuellement.
+            </p>
+            <!-- Bouton pour lancer l'audio -->
+            <button onclick="playIntroAudio()" class="mt-4 px-6 py-3 bg-cyan-500 text-white font-semibold rounded-full shadow hover:bg-cyan-600 transition duration-300">
+                Écouter l'introduction audio
             </button>
-
-            <!-- 5. Détail du Centre (DIEU) -->
-            <div id="detail-centre" class="detail-section hidden">
-                <h2 class="text-5xl font-extrabold mb-8 gradient-text">DIEU : Le Cœur Inébranlable de mon Ikigai</h2>
-                <div class="p-8 lg:p-12 bg-white rounded-3xl shadow-xl border-t-8 border-cyan-500">
-                    <p class="text-2xl text-gray-800 mb-6">
-                        Au centre de mes valeurs, de mes préoccupations, de mes talents et de mes vocations, se trouve le fondement de ma vie et de mon engagement.
-                    </p>
-                    <p class="text-xl text-gray-700 leading-relaxed">
-                        DIEU représente l'origine, la direction et la force motrice de mon profil culturel. C'est l'ancre qui assure la Foi, la source de l'Amour que je partage, et la raison ultime de mon Engagement pour l'éducation et la communauté. Ce centre spirituel donne un sens transcendantal à ma Responsabilité et à ma Camaraderie, transformant mes pistes vocationnelles en une véritable mission de service.
-                    </p>
-                    <p class="text-xl text-gray-700 leading-relaxed mt-4">
-                        Toutes mes actions visent à refléter cette source d'inspiration, assurant que mon travail est aligné non seulement avec ce que le monde exige, mais avec ce qui est juste et éternel.
-                    </p>
-                </div>
-            </div>
-
-            <!-- 1. Détail des Valeurs -->
-            <div id="detail-valeurs" class="detail-section hidden">
-                <h2 class="text-4xl font-bold mb-6 text-pink-600">Mes Valeurs Fondamentales : Ancrage et Direction</h2>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="detail-item border-pink-500">
-                        <h4 class="text-xl font-semibold text-pink-600">Amour</h4>
-                        <p class="text-gray-700 mt-2">L'amour comme moteur de toute action, qu'elle soit professionnelle ou personnelle. C'est la source de la compassion et de la bienveillance envers les autres.</p>
-                    </div>
-                    <div class="detail-item border-pink-500">
-                        <h4 class="text-xl font-semibold text-pink-600">Foi</h4>
-                        <p class="text-gray-700 mt-2">Une confiance inébranlable dans un plan plus grand (DIEU) et dans le potentiel de chaque individu. La foi donne le courage d'initier des changements difficiles.</p>
-                    </div>
-                    <div class="detail-item border-pink-500">
-                        <h4 class="text-xl font-semibold text-pink-600">Engagement</h4>
-                        <p class="text-gray-700 mt-2">Une dévotion totale aux objectifs fixés et aux personnes que je sers. Aller au-delà des attentes pour garantir le succès et la pérennité des projets.</p>
-                    </div>
-                    <div class="detail-item border-pink-500">
-                        <h4 class="text-xl font-semibold text-pink-600">Camaraderie</h4>
-                        <p class="text-gray-700 mt-2">La promotion d'un esprit d'équipe fort, où le soutien mutuel et la collaboration sont les clés pour surmonter les obstacles.</p>
-                    </div>
-                    <div class="detail-item border-pink-500">
-                        <h4 class="text-xl font-semibold text-pink-600">Responsabilité</h4>
-                        <p class="text-gray-700 mt-2">L'acceptation pleine et entière des conséquences de mes choix et l'obligation de rendre compte, favorisant l'intégrité et la fiabilité.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2. Détail des Préoccupations -->
-            <div id="detail-preoccupations" class="detail-section hidden">
-                <h2 class="text-4xl font-bold mb-6 text-green-600">Mes Préoccupations Sociales : Les Besoins que j'identifie</h2>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="detail-item border-green-500">
-                        <h4 class="text-xl font-semibold text-green-600">Accessibilité éducative</h4>
-                        <p class="text-gray-700 mt-2">Assurer que l'éducation de qualité soit disponible, quel que soit le statut socio-économique ou la géographie de l'apprenant.</p>
-                    </div>
-                    <div class="detail-item border-green-500">
-                        <h4 class="text-xl font-semibold text-green-600">Compétences pertinentes</h4>
-                        <p class="text-gray-700 mt-2">Mettre l'accent sur l'acquisition de compétences pratiques et transférables, alignées sur les défis du monde actuel et futur.</p>
-                    </div>
-                    <div class="detail-item border-green-500">
-                        <h4 class="text-xl font-semibold text-green-600">Partenariats mondiaux</h4>
-                        <p class="text-gray-700 mt-2">Faciliter des collaborations entre communautés et institutions à travers le monde pour partager les meilleures pratiques éducatives.</p>
-                    </div>
-                    <div class="detail-item border-green-500">
-                        <h4 class="text-xl font-semibold text-green-600">Support scolaire</h4>
-                        <p class="text-gray-700 mt-2">Développer des systèmes de soutien personnalisés pour les élèves en difficulté, allant au-delà de la simple aide aux devoirs.</p>
-                    </div>
-                    <div class="detail-item border-green-500">
-                        <h4 class="text-xl font-semibold text-green-600">Ateliers de compétences</h4>
-                        <p class="text-gray-700 mt-2">Concevoir et animer des sessions interactives pour développer l'esprit critique, la résilience et l'intelligence émotionnelle.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3. Détail des Talents -->
-            <div id="detail-talents" class="detail-section hidden">
-                <h2 class="text-4xl font-bold mb-6 text-yellow-600">Mes Talents Uniques : Ce que je fais naturellement bien</h2>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="detail-item border-yellow-500">
-                        <h4 class="text-xl font-semibold text-yellow-600">Encourager les autres</h4>
-                        <p class="text-gray-700 mt-2">Capacité innée à voir le potentiel chez les autres et à utiliser des mots et des actions pour les motiver à le réaliser.</p>
-                    </div>
-                    <div class="detail-item border-yellow-500">
-                        <h4 class="text-xl font-semibold text-yellow-600">Percevoir les émotions</h4>
-                        <p class="text-gray-700 mt-2">Une grande sensibilité aux signaux non-verbaux, permettant de comprendre rapidement les besoins et les états d'âme de mes interlocuteurs.</p>
-                    </div>
-                    <div class="detail-item border-yellow-500">
-                        <h4 class="text-xl font-semibold text-yellow-600">Initié de projets</h4>
-                        <p class="text-gray-700 mt-2">La capacité de transformer une vision ou une idée abstraite en un plan d'action concret et réalisable, en mobilisant les ressources nécessaires.</p>
-                    </div>
-                    <div class="detail-item border-yellow-500">
-                        <h4 class="text-xl font-semibold text-yellow-600">Confiance en soi</h4>
-                        <p class="text-gray-700 mt-2">Une assurance tranquille qui inspire la fiabilité et la sécurité, essentielle pour mener des équipes et des projets complexes.</p>
-                    </div>
-                    <div class="detail-item border-yellow-500">
-                        <h4 class="text-xl font-semibold text-yellow-600">Engagement authentique</h4>
-                        <p class="text-gray-700 mt-2">Une approche sincère et transparente dans toutes les interactions, bâtissant des relations basées sur la vérité et le respect mutuel.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 4. Détail des Vocations -->
-            <div id="detail-vocations" class="detail-section hidden">
-                <h2 class="text-4xl font-bold mb-6 text-blue-600">Mes Pistes Vocationnelles : Le Croisement des Possibilités</h2>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="detail-item border-blue-500">
-                        <h4 class="text-xl font-semibold text-blue-600">Coach Éducatif</h4>
-                        <p class="text-gray-700 mt-2">Accompagner les étudiants, les enseignants ou les parents dans l'optimisation de leurs stratégies d'apprentissage et de développement.</p>
-                    </div>
-                    <div class="detail-item border-blue-500">
-                        <h4 class="text-xl font-semibold text-blue-600">Animateur Communautaire</h4>
-                        <p class="text-gray-700 mt-2">Créer et gérer des espaces de rencontre et d'échange, utilisant mes talents pour la camaraderie et l'encouragement afin de renforcer le tissu social.</p>
-                    </div>
-                    <div class="detail-item border-blue-500">
-                        <h4 class="text-xl font-semibold text-blue-600">Consultant En Éducation</h4>
-                        <p class="text-gray-700 mt-2">Conseiller des organisations sur l'amélioration de l'accessibilité éducative et l'intégration de compétences pertinentes dans leurs programmes.</p>
-                    </div>
-                    <div class="detail-item border-blue-500">
-                        <h4 class="text-xl font-semibold text-blue-600">Mentor Jeunesse</h4>
-                        <p class="text-gray-700 mt-2">Offrir un soutien personnalisé aux jeunes, utilisant ma perception émotionnelle et mon engagement authentique pour guider leur développement personnel.</p>
-                    </div>
-                    <div class="detail-item border-blue-500">
-                        <h4 class="text-xl font-semibold text-blue-600">Coordinateur Partenariats</h4>
-                        <p class="text-gray-700 mt-2">Mettre en relation des acteurs locaux et mondiaux (une préoccupation clé) pour lancer des initiatives éducatives conjointes, grâce à mon talent d'initié de projets.</p>
-                    </div>
-                </div>
-            </div>
         </div>
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 w-full">
+            <a href="#ikigai-section" class="text-gray-500 hover:text-cyan-500 transition duration-300">
+                <svg class="w-8 h-8 mx-auto animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </a>
+        </div>
+    </section>
 
+    <!-- Nouvelle section À propos -->
+    <section id="about" class="flex flex-col md:flex-row items-center justify-center bg-gray-50 py-16 px-4 md:px-12">
+        <img src="licensed-image.jpeg" alt="À propos de moi" class="w-96 h-96 rounded-2xl shadow-xl mb-8 md:mb-0 md:mr-12 object-cover">
+    </section>
 
+    <!-- Main Content (Ikigai) -->
+    <div id="ikigai-section">
+        <!-- Conteneur principal centré -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-        <!-- Note de bas de page -->
-        <footer class="text-center mt-12 pt-12 text-gray-500 border-t border-gray-200">
-            <p>Ce profil représente l'alignement entre le cœur, la mission, la passion et la vocation.</p>
-        </footer>
+            <!-- En-tête du Profil -->
+            <header class="text-center mb-16">
+                <h1 class="text-6xl font-extrabold mb-4 gradient-text leading-tight" id="main-title">Mon Ikigai Culturel</h1>
+                <p class="text-xl text-gray-600" id="main-subtitle">Le profil de mon identité et de ma mission, centré sur l'essentiel.</p>
+            </header>
 
+            <!-- Vue Principale de l'Ikigai (affichée par défaut) -->
+            <div id="ikigai-view" class="transition-opacity duration-500">
+                <section class="relative flex justify-center items-center py-8">
+                    
+                    <!-- Core: DIEU (Maintenant cliquable) -->
+                    <div class="ikigai-core flex flex-col space-y-2" id="card-centre" data-section="centre">
+                        <h2 class="text-5xl font-bold tracking-wider">DIEU</h2>
+                        <p class="text-lg font-medium">Mon Centre</p>
+                    </div>
+
+                    <!-- Grille des Quatre Piliers (Responsive Grid) -->
+                    <div class="grid md:grid-cols-2 gap-10 lg:gap-16 mt-16 md:mt-0 p-4 md:p-0 w-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-6xl">
+
+                        <!-- 1. Mes Valeurs (Ce qui donne sens) -->
+                        <div id="card-valeurs" data-section="valeurs" class="section-card p-6 md:p-8 lg:p-10 col-span-1 md:col-start-1 md:col-end-2 md:row-start-1 md:row-end-2 self-start md:translate-x-[-15%] md:translate-y-[-10%]">
+                            <h3 class="text-2xl font-bold mb-4 text-pink-600 flex items-center">
+                                <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path></svg>
+                                Mes Valeurs Fondamentales
+                            </h3>
+                            <ul class="space-y-2 text-gray-700 list-disc pl-5">
+                                <li>Amour</li>
+                                <li>Foi</li>
+                                <li>Engagement</li>
+                                <li>Camaraderie</li>
+                                <li>Responsabilité</li>
+                            </ul>
+                        </div>
+
+                        <!-- 2. Mes Préoccupations (Ce dont le monde a besoin) -->
+                        <div id="card-preoccupations" data-section="preoccupations" class="section-card p-6 md:p-8 lg:p-10 col-span-1 md:col-start-2 md:col-end-3 md:row-start-1 md:row-end-2 self-start md:translate-x-[15%] md:translate-y-[-10%]">
+                            <h3 class="text-2xl font-bold mb-4 text-green-600 flex items-center">
+                                <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm1 12h-2v-2h2v2zm0-4h-2V6h2v4z" clip-rule="evenodd"></path></svg>
+                                Mes Préoccupations Sociales
+                            </h3>
+                            <ul class="space-y-2 text-gray-700 list-disc pl-5">
+                                <li>Accessibilité éducative</li>
+                                <li>Compétences pertinentes</li>
+                                <li>Partenariats mondiaux</li>
+                                <li>Support scolaire</li>
+                                <li>Ateliers de compétences</li>
+                            </ul>
+                        </div>
+
+                        <!-- 3. Mes Talents (Ce que je fais bien) -->
+                        <div id="card-talents" data-section="talents" class="section-card p-6 md:p-8 lg:p-10 col-span-1 md:col-start-1 md:col-end-2 md:row-start-2 md:row-end-3 self-end md:translate-x-[-15%] md:translate-y-[10%]">
+                            <h3 class="text-2xl font-bold mb-4 text-yellow-600 flex items-center">
+                                <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6v2a2 2 0 01-2 2h16a2 2 0 01-2-2V8a6 6 0 00-6-6zM4 14v1a3 3 0 003 3h6a3 3 0 003-3v-1H4z"></path></svg>
+                                Mes Talents & Compétences
+                            </h3>
+                            <ul class="space-y-2 text-gray-700 list-disc pl-5">
+                                <li>Encourager les autres</li>
+                                <li>Percevoir les émotions</li>
+                                <li>Initié de projets</li>
+                                <li>Confiance en soi</li>
+                                <li>Engagement authentique</li>
+                            </ul>
+                        </div>
+
+                        <!-- 4. Mes Vocations (Ce pour quoi je peux être payé/servir) -->
+                        <div id="card-vocations" data-section="vocations" class="section-card p-6 md:p-8 lg:p-10 col-span-1 md:col-start-2 md:col-end-3 md:row-start-2 md:row-end-3 self-end md:translate-x-[15%] md:translate-y-[10%]">
+                            <h3 class="text-2xl font-bold mb-4 text-blue-600 flex items-center">
+                                <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20"><path d="M10 9a3 3 0 100-6 3 3 0 000 6zM9 10H8v4h4v-4h-1v-2H9v2z"></path></svg>
+                                Mes Pistes Vocationnelles
+                            </h3>
+                            <ul class="space-y-2 text-gray-700 list-disc pl-5">
+                                <li>Coach Éducatif</li>
+                                <li>Animateur Communautaire</li>
+                                <li>Consultant En Éducation</li>
+                                <li>Mentor Jeunesse</li>
+                                <li>Coordinateur Partenariats</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </section>
+            </div>
+            
+            <!-- Conteneur des Vues Détaillées (initialement caché) -->
+            <div id="detail-view-container" class="hidden transition-opacity duration-500 opacity-0">
+                
+                <!-- Bouton de retour commun -->
+                <button onclick="showIkigai()" class="mb-8 px-6 py-3 bg-gray-200 text-gray-700 font-semibold rounded-full hover:bg-gray-300 transition duration-300 flex items-center">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Retour au Profil Ikigai
+                </button>
+
+                <!-- 5. Détail du Centre (DIEU) -->
+                <div id="detail-centre" class="detail-section hidden">
+                    <h2 class="text-5xl font-extrabold mb-8 gradient-text">DIEU : Le Cœur Inébranlable de mon Ikigai</h2>
+                    <div class="p-8 lg:p-12 bg-white rounded-3xl shadow-xl border-t-8 border-cyan-500">
+                        <p class="text-2xl text-gray-800 mb-6">
+                            Au centre de mes valeurs, de mes préoccupations, de mes talents et de mes vocations, se trouve le fondement de ma vie et de mon engagement.
+                        </p>
+                        <p class="text-xl text-gray-700 leading-relaxed">
+                            DIEU représente l'origine, la direction et la force motrice de mon profil culturel. C'est l'ancre qui assure la Foi, la source de l'Amour que je partage, et la raison ultime de mon Engagement pour l'éducation et la communauté. Ce centre spirituel donne un sens transcendantal à ma Responsabilité et à ma Camaraderie, transformant mes pistes vocationnelles en une véritable mission de service.
+                        </p>
+                        <p class="text-xl text-gray-700 leading-relaxed mt-4">
+                            Toutes mes actions visent à refléter cette source d'inspiration, assurant que mon travail est aligné non seulement avec ce que le monde exige, mais avec ce qui est juste et éternel.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 1. Détail des Valeurs -->
+                <div id="detail-valeurs" class="detail-section hidden">
+                    <h2 class="text-4xl font-bold mb-6 text-pink-600">Mes Valeurs Fondamentales : Ancrage et Direction</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="detail-item border-pink-500">
+                            <h4 class="text-xl font-semibold text-pink-600">Amour</h4>
+                            <p class="text-gray-700 mt-2">L'amour comme moteur de toute action, qu'elle soit professionnelle ou personnelle. C'est la source de la compassion et de la bienveillance envers les autres.</p>
+                        </div>
+                        <div class="detail-item border-pink-500">
+                            <h4 class="text-xl font-semibold text-pink-600">Foi</h4>
+                            <p class="text-gray-700 mt-2">Une confiance inébranlable dans un plan plus grand (DIEU) et dans le potentiel de chaque individu. La foi donne le courage d'initier des changements difficiles.</p>
+                        </div>
+                        <div class="detail-item border-pink-500">
+                            <h4 class="text-xl font-semibold text-pink-600">Engagement</h4>
+                            <p class="text-gray-700 mt-2">Une dévotion totale aux objectifs fixés et aux personnes que je sers. Aller au-delà des attentes pour garantir le succès et la pérennité des projets.</p>
+                        </div>
+                        <div class="detail-item border-pink-500">
+                            <h4 class="text-xl font-semibold text-pink-600">Camaraderie</h4>
+                            <p class="text-gray-700 mt-2">La promotion d'un esprit d'équipe fort, où le soutien mutuel et la collaboration sont les clés pour surmonter les obstacles.</p>
+                        </div>
+                        <div class="detail-item border-pink-500">
+                            <h4 class="text-xl font-semibold text-pink-600">Responsabilité</h4>
+                            <p class="text-gray-700 mt-2">L'acceptation pleine et entière des conséquences de mes choix et l'obligation de rendre compte, favorisant l'intégrité et la fiabilité.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Détail des Préoccupations -->
+                <div id="detail-preoccupations" class="detail-section hidden">
+                    <h2 class="text-4xl font-bold mb-6 text-green-600">Mes Préoccupations Sociales : Les Besoins que j'identifie</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="detail-item border-green-500">
+                            <h4 class="text-xl font-semibold text-green-600">Accessibilité éducative</h4>
+                            <p class="text-gray-700 mt-2">Assurer que l'éducation de qualité soit disponible, quel que soit le statut socio-économique ou la géographie de l'apprenant.</p>
+                        </div>
+                        <div class="detail-item border-green-500">
+                            <h4 class="text-xl font-semibold text-green-600">Compétences pertinentes</h4>
+                            <p class="text-gray-700 mt-2">Mettre l'accent sur l'acquisition de compétences pratiques et transférables, alignées sur les défis du monde actuel et futur.</p>
+                        </div>
+                        <div class="detail-item border-green-500">
+                            <h4 class="text-xl font-semibold text-green-600">Partenariats mondiaux</h4>
+                            <p class="text-gray-700 mt-2">Faciliter des collaborations entre communautés et institutions à travers le monde pour partager les meilleures pratiques éducatives.</p>
+                        </div>
+                        <div class="detail-item border-green-500">
+                            <h4 class="text-xl font-semibold text-green-600">Support scolaire</h4>
+                            <p class="text-gray-700 mt-2">Développer des systèmes de soutien personnalisés pour les élèves en difficulté, allant au-delà de la simple aide aux devoirs.</p>
+                        </div>
+                        <div class="detail-item border-green-500">
+                            <h4 class="text-xl font-semibold text-green-600">Ateliers de compétences</h4>
+                            <p class="text-gray-700 mt-2">Concevoir et animer des sessions interactives pour développer l'esprit critique, la résilience et l'intelligence émotionnelle.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Détail des Talents -->
+                <div id="detail-talents" class="detail-section hidden">
+                    <h2 class="text-4xl font-bold mb-6 text-yellow-600">Mes Talents Uniques : Ce que je fais naturellement bien</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="detail-item border-yellow-500">
+                            <h4 class="text-xl font-semibold text-yellow-600">Encourager les autres</h4>
+                            <p class="text-gray-700 mt-2">Capacité innée à voir le potentiel chez les autres et à utiliser des mots et des actions pour les motiver à le réaliser.</p>
+                        </div>
+                        <div class="detail-item border-yellow-500">
+                            <h4 class="text-xl font-semibold text-yellow-600">Percevoir les émotions</h4>
+                            <p class="text-gray-700 mt-2">Une grande sensibilité aux signaux non-verbaux, permettant de comprendre rapidement les besoins et les états d'âme de mes interlocuteurs.</p>
+                        </div>
+                        <div class="detail-item border-yellow-500">
+                            <h4 class="text-xl font-semibold text-yellow-600">Initié de projets</h4>
+                            <p class="text-gray-700 mt-2">La capacité de transformer une vision ou une idée abstraite en un plan d'action concret et réalisable, en mobilisant les ressources nécessaires.</p>
+                        </div>
+                        <div class="detail-item border-yellow-500">
+                            <h4 class="text-xl font-semibold text-yellow-600">Confiance en soi</h4>
+                            <p class="text-gray-700 mt-2">Une assurance tranquille qui inspire la fiabilité et la sécurité, essentielle pour mener des équipes et des projets complexes.</p>
+                        </div>
+                        <div class="detail-item border-yellow-500">
+                            <h4 class="text-xl font-semibold text-yellow-600">Engagement authentique</h4>
+                            <p class="text-gray-700 mt-2">Une approche sincère et transparente dans toutes les interactions, bâtissant des relations basées sur la vérité et le respect mutuel.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Détail des Vocations -->
+                <div id="detail-vocations" class="detail-section hidden">
+                    <h2 class="text-4xl font-bold mb-6 text-blue-600">Mes Pistes Vocationnelles : Le Croisement des Possibilités</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="detail-item border-blue-500">
+                            <h4 class="text-xl font-semibold text-blue-600">Coach Éducatif</h4>
+                            <p class="text-gray-700 mt-2">Accompagner les étudiants, les enseignants ou les parents dans l'optimisation de leurs stratégies d'apprentissage et de développement.</p>
+                        </div>
+                        <div class="detail-item border-blue-500">
+                            <h4 class="text-xl font-semibold text-blue-600">Animateur Communautaire</h4>
+                            <p class="text-gray-700 mt-2">Créer et gérer des espaces de rencontre et d'échange, utilisant mes talents pour la camaraderie et l'encouragement afin de renforcer le tissu social.</p>
+                        </div>
+                        <div class="detail-item border-blue-500">
+                            <h4 class="text-xl font-semibold text-blue-600">Consultant En Éducation</h4>
+                            <p class="text-gray-700 mt-2">Conseiller des organisations sur l'amélioration de l'accessibilité éducative et l'intégration de compétences pertinentes dans leurs programmes.</p>
+                        </div>
+                        <div class="detail-item border-blue-500">
+                            <h4 class="text-xl font-semibold text-blue-600">Mentor Jeunesse</h4>
+                            <p class="text-gray-700 mt-2">Offrir un soutien personnalisé aux jeunes, utilisant ma perception émotionnelle et mon engagement authentique pour guider leur développement personnel.</p>
+                        </div>
+                        <div class="detail-item border-blue-500">
+                            <h4 class="text-xl font-semibold text-blue-600">Coordinateur Partenariats</h4>
+                            <p class="text-gray-700 mt-2">Mettre en relation des acteurs locaux et mondiaux (une préoccupation clé) pour lancer des initiatives éducatives conjointes, grâce à mon talent d'initié de projets.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Note de bas de page -->
+            <footer class="text-center mt-12 pt-12 text-gray-500 border-t border-gray-200">
+                <p>Ce profil représente l'alignement entre le cœur, la mission, la passion et la vocation.</p>
+            </footer>
+
+        </div>
     </div>
 
     <script>
@@ -309,9 +351,13 @@
             const detailContainer = document.getElementById('detail-view-container');
             const mainTitle = document.getElementById('main-title');
             const mainSubtitle = document.getElementById('main-subtitle');
+            const heroSection = document.getElementById('hero');
+            const aboutSection = document.getElementById('about');
             
-            // Masquer la vue Ikigai et afficher le conteneur de détails
+            // Masquer la vue Ikigai, le Hero et le About, afficher le conteneur de détails
             ikigaiView.classList.add('opacity-0');
+            if (heroSection) heroSection.classList.add('hidden');
+            if (aboutSection) aboutSection.classList.add('hidden');
             setTimeout(() => {
                 ikigaiView.classList.add('hidden');
                 detailContainer.classList.remove('hidden');
@@ -345,8 +391,12 @@
             const detailContainer = document.getElementById('detail-view-container');
             const mainTitle = document.getElementById('main-title');
             const mainSubtitle = document.getElementById('main-subtitle');
+            const heroSection = document.getElementById('hero');
+            const aboutSection = document.getElementById('about');
             
-            // Masquer le conteneur de détails et afficher la vue Ikigai
+            // Réaffiche le Hero et le About avec la vue Ikigai
+            if (heroSection) heroSection.classList.remove('hidden');
+            if (aboutSection) aboutSection.classList.remove('hidden');
             detailContainer.classList.add('opacity-0');
             setTimeout(() => {
                 detailContainer.classList.add('hidden');
